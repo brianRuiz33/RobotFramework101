@@ -9,6 +9,8 @@ ${url}    http://10.71.46.30/CAisd/pdmweb.exe
 Mi Test 1
     [Documentation]    De que es el test?
     Abrir pagina    ${url}
+    Escribir user ID    65050478
+    Click boton login
 
 
 *** Keywords ***

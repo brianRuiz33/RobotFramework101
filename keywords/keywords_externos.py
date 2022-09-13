@@ -1,3 +1,6 @@
+import sys, os
+#sys.path.append("E:\\Usuarios\\mdrivets\\Documents\\RobotFramework101")
+sys.path.append(os.path.join(os.getcwd()))
 from robot.api.deco import keyword
 from robot.api import logger
 from controladores.pagina1 import PaginaUno

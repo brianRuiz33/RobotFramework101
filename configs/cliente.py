@@ -1,5 +1,6 @@
 from configs import singleton
 from selenium import webdriver
+import os
 
 def obtener_driver(): 
 
@@ -10,7 +11,7 @@ def obtener_driver():
     else: #Crear el nuevo driver
 
         chrome_options = webdriver.ChromeOptions()
-        driver_path = "/Users/brianruiz/Documents/Brian/chromedriver"
+        driver_path = os.path.join(os.getcwd(),"chromedriver_win32","chromedriver.exe")
         driver = webdriver.Chrome(driver_path, chrome_options=chrome_options)
         #Set fullscreen
         driver.set_window_size(1920, 1080)

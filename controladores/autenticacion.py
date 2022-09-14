@@ -17,9 +17,9 @@ class Autenticacion():
     btn_login = "//a[@id='imgBtn0']"
     btn_guestacc = "//span[@class='guest_msg']"
     etiqueta_footer = "//p[@class='copyright_info']"
-    dropdown_rol = "//select[@id='roles']"
-    btn_establecer_rol = "//a[@id='imgBtn0']"
 
+    def abrir_pagina(self, url):
+        self.driver.get(url)
 
     def escribir_usuario(self, user_id):
         txt_usuario = self.driver.find_element(By.XPATH, self.txtbox_usuario)
@@ -27,13 +27,11 @@ class Autenticacion():
 
         log_controller.log_info(f"Se inserto el user id -> {user_id}")
 
-
     def escribir_pass(self, pswd):
         txt_pswd = self.driver.find_element(By.XPATH, self.txtbox_pswd)
         txt_pswd.send_keys(pswd)
 
         log_controller.log_info(f"Se inserto el pswd -> {pswd}")
-
 
     def presionar_boton_login(self):
         btn_login_elements = self.driver.find_element(By.XPATH, self.btn_login)
@@ -42,36 +40,16 @@ class Autenticacion():
 
         log_controller.log_info("Se dio click en el boton login")
        
-
     def presionar_boton_guest(self):
         btn_guestacc_elements = self.driver.find_element(By.XPATH, self.btn_guestacc)
         btn_guestacc_elements.click()
 
         log_controller.log_info("Se dio click en acceso a invitado")
 
-
     def leer_footer(self):
         elemento_footer = self.driver.find_element(By.XPATH,self.etiqueta_footer)
         texto_footer = elemento_footer.text
         return texto_footer
-
-    
-    def selecciona_rol(self, rol):
-        #self.driver.switch_to.frame("mainFrameSet")
-        self.driver.switch_to.frame("welcome_banner")
-        seleccion_rol_elements = self.driver.find_element(By.XPATH, self.dropdown_rol)
-        seleccion_rol_elements.click()
-        seleccion_rol_elements.send_keys(rol)
-        self.driver.switch_to.default_content()
-        log_controller.log_info(f"Se selecciono el rol -> {rol}")
-
-
-    def presionar_boton_establece_rol(self):
-        self.driver.switch_to.frame("welcome_banner")
-        btn_establecer_rol = self.driver.find_element(By.XPATH, self.btn_establecer_rol)
-        btn_establecer_rol.click()
-        self.driver.switch_to.default_content()
-
 
     #Metodos de validacion
 

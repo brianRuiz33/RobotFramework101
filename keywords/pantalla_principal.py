@@ -16,3 +16,13 @@ def seleccion_rol(rol):
 @keyword(name="Establecer Rol")
 def establece_rol():
     ppc.presionar_boton_establece_rol()
+
+
+@keyword(name="Crear Nuevo Incidente")
+def btn_new_incidente():
+    ppc.presionar_boton_new_inc()
+
+
+@keyword(name="cliente id")
+def cliente_id(id):
+    ppc.escribir_cliente_id(id)
